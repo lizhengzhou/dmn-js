@@ -206,7 +206,7 @@ export default class Keyboard {
       const selectedCell = cellSelection.getCellSelection();
 
       // add new rule if no next rule
-      if (!changed && selectedCell && !isDecisionTableIdCell(selectedCell)) {
+      if (!changed && selectedCell) {
         const rule = editorActions.trigger('addRule');
 
         editorActions.trigger('selectCellBelow');
@@ -243,10 +243,3 @@ Keyboard.$inject = [
   'editorActions',
   'cellSelection'
 ];
-
-
-// helpers //////////////////
-
-function isDecisionTableIdCell(cell) {
-  return cell === '__decisionProperties_id';
-}

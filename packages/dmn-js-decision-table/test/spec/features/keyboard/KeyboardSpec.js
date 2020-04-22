@@ -138,30 +138,6 @@ describe('features/keyboard', function() {
       }
     ));
 
-
-    it('should NOT create new rule on decision id cell <ENTER>', inject(
-      function(cellSelection, sheet) {
-
-        // given
-        const gfx = getGraphics('__decisionProperties_id', testContainer);
-        const root = sheet.getRoot();
-        const rowCount = getRowCount(root);
-
-        triggerMouseEvent(gfx, 'click');
-
-        // assure
-        expect(cellSelection.getCellSelection()).to.equal('__decisionProperties_id');
-
-        // when
-        triggerKeyEvent(gfx, 'keydown', {
-          keyCode: 13
-        });
-
-        // then
-        expect(rowCount).to.equal(getRowCount(root));
-      }
-    ));
-
   });
 
 });
